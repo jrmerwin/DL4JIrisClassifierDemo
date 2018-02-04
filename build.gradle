@@ -4,6 +4,14 @@ buildscript {
     repositories {
         jcenter()
         google()
+
+        configurations.all {
+            resolutionStrategy {
+                force 'net.sf.proguard:proguard-gradle:5.3.2'
+            }
+        }
+
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'

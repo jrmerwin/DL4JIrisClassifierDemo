@@ -1,37 +1,36 @@
-# Add project specific ProGuard rules here.
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+-dontwarn org.apache.lang.**
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+-keepattributes *Annotation*
+# JavaCV
+-keep @org.bytedeco.javacpp.annotation interface * {
+    *;
+}
+-keep @org.bytedeco.javacpp.annotation.Platform public class *
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+-keepclasseswithmembernames class * {
+    @org.bytedeco.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @org.bytedeco.* <methods>;
+}
+
+-keepattributes EnclosingMethod
+-keep @interface org.bytedeco.javacpp.annotation.*,javax.inject.*
+
+-keepattributes *Annotation*, Exceptions, Signature, Deprecated, SourceFile, SourceDir, LineNumberTable, LocalVariableTable, LocalVariableTypeTable, Synthetic, EnclosingMethod, RuntimeVisibleAnnotations, RuntimeInvisibleAnnotations, RuntimeVisibleParameterAnnotations, RuntimeInvisibleParameterAnnotations, AnnotationDefault, InnerClasses
+-keep class org.bytedeco.javacpp.** {*;}
+-dontwarn java.awt.**
+-dontwarn org.bytedeco.javacv.**
+-dontwarn org.bytedeco.javacpp.**
+# end javacv
 
 # enable optimization
 -optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
 -optimizationpasses 5
 -allowaccessmodification
 
-# Flags to keep standard classes
--keep public class * extends android.app.Activity
--keep public class * extends android.app.Application
--keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgent
--keep public class * extends android.preference.Preference
--keep public class * extends android.support.v7.app.Fragment
--keep public class * extends android.support.v7.app.DialogFragment
--keep public class * extends com.actionbarsherlock.app.SherlockListFragment
--keep public class * extends com.actionbarsherlock.app.SherlockFragment
--keep public class * extends com.actionbarsherlock.app.SherlockFragmentActivity
--keep public class * extends android.app.Fragment
--keep public class com.android.vending.licensing.ILicensingService
-
-# This flag is needed to keep native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+# This flag is needed to keep native methods
 -keepclasseswithmembernames class * {
  native <methods>;
 }
@@ -55,7 +54,7 @@
  public void *(android.view.View);
 }
 
-# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+# For enumeration classes
 -keepclassmembers enum * {
  public static **[] values();
  public static ** valueOf(java.lang.String);
@@ -75,4 +74,21 @@
 -keep interface com.actionbarsherlock.** { *; }
 -dontwarn android.support.**
 -dontwarn com.google.ads.**
+
+# Flags to keep standard classes
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgent
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.support.v7.app.Fragment
+-keep public class * extends android.support.v7.app.DialogFragment
+-keep public class * extends com.actionbarsherlock.app.SherlockListFragment
+-keep public class * extends com.actionbarsherlock.app.SherlockFragment
+-keep public class * extends com.actionbarsherlock.app.SherlockFragmentActivity
+-keep public class * extends android.app.Fragment
+-keep public class com.android.vending.licensing.ILicensingService
+
 
