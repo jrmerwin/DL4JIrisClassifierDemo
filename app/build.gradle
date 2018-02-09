@@ -63,12 +63,6 @@ android {
             resolutionStrategy.force 'junit:junit:4.12'
         }
 
-        //This suppresses the multiple dex files error.
-        compile 'com.google.code.findbugs:annotations:3.0.1', {
-            exclude module: 'jsr305'
-            exclude module: 'jcip-annotations'
-        }
-
 
     }
 
