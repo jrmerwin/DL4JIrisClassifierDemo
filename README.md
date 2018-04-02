@@ -9,4 +9,4 @@ length, petal width, sepal length, and sepal width from the user and it returns 
 to one of three types (Iris serosa, Iris versicolor, and Iris virginica). A data set of 150 measurements is used to train 
 the model, which takes anywhere from 5-30 seconds, depending on the device. A tutorial for the application can be found [here](https://github.com/jrmerwin/Skymind-Android-Documentation/blob/master/DL4JIrisClassifierDemo.md).
 
-For more information on Deeplearning4J, please visit http://deeplearning4j.org/
+More information on Deeplearning4J can be found at http://deeplearning4j.org/
